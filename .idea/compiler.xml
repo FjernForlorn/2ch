@@ -7,16 +7,29 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="2ch-data" />
-        <module name="2ch-web" />
-        <module name="2ch" />
+        <module name="client" />
+        <module name="common-test" />
+        <module name="common" />
+        <module name="common-client" />
+        <module name="2ch-web-app" />
       </profile>
     </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="2ch-data" target="17" />
+      <module name="2ch-ui" target="1.5" />
+      <module name="2ch-web (1)" target="17" />
+    </bytecodeTargetLevel>
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
       <module name="2ch-data" options="-parameters" />
-      <module name="2ch-web" options="-parameters" />
+      <module name="2ch-ui" options="" />
+      <module name="2ch-web (1)" options="-parameters" />
+      <module name="2ch-web-app" options="-parameters" />
+      <module name="client" options="-parameters" />
+      <module name="common" options="-parameters" />
+      <module name="common-client" options="-parameters" />
+      <module name="common-test" options="-parameters" />
     </option>
   </component>
 </project>

@@ -1,0 +1,39 @@
+http:
+  protocol: http
+  host: localhost
+  port: 8080
+  sec:
+    path: /
+
+
+spring:
+  servlet:
+    multipart:
+      max-request-size: 250MB
+      max-file-size: 200MB
+
+
+logging:
+  level:
+    org:
+      hibernate:
+        type: trace
+
+#values
+page:
+  size: 20
+api:
+  users:
+    address: /users
+    mappings:
+      activateUser: /activateUser
+  video:
+    address: /api/v1/video
+data:
+  video:
+    folder: E:\Java projets\2ch\data\video
+  previewPicture:
+    folder: E:\Java projets\2ch\data\previewPicture
+  chunkRate: 1000000
+
+
