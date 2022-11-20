@@ -12,7 +12,7 @@ import org.springframework.stereotype.Service;
 @Service
 public class RoleServiceImpl extends AbstractService<Role> implements RoleService {
     @Autowired
-    private RoleRepository roleRepository;
+    protected RoleRepository roleRepository;
     @Override
     protected JpaRepository<Role, Long> getRepo() {
         return this.roleRepository;

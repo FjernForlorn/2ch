@@ -1,6 +1,7 @@
 package com.fjern.common.services;
 
 import com.fjern.common.interfaces.IEntity;
+import com.google.common.base.Preconditions;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -23,7 +24,8 @@ public abstract class AbstractRawService<T extends IEntity> implements RawServic
     @Override
     @Transactional
     public T create(T object) {
-       return getRepo().save(object);
+        Preconditions.checkNotNull(object);
+        return getRepo().save(object);
     }
 
     @Override

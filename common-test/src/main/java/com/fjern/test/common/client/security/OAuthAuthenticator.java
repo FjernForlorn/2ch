@@ -45,7 +45,8 @@ public class OAuthAuthenticator implements ITestAuthenticator{
 
     final String getAccessToken(String username, String password) {
         try {
-            URI uri = new URI(paths.getProtocol(), null, paths.getHost(), paths.getPort(), oAuthProperties.getSecPath() + oAuthProperties.getOauthPath(), null, null);
+            URI uri = new URI(paths.getProtocol(), null, paths.getHost(), paths.getPort()
+                    , oAuthProperties.getSecPath() + oAuthProperties.getOauthPath(), null, null);
             String url = uri.toString();
             log.info(url);
             String encodedCredentials = new String(Base64.encodeBase64((CLIENT_ID+":"+CLIENT_SECRET).getBytes()));
