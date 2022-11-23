@@ -1,7 +1,8 @@
-package com.fjern.app.run.configs;
+package com.fjern.app.web;
 
 import com.fjern.common.exception.ApiError;
 import com.fjern.common.exception.MyBadRequestException;
+import com.fjern.common.exception.MyConstraintViolationException;
 import com.fjern.common.exception.MyResourceNotFoundException;
 import org.apache.commons.lang3.exception.ExceptionUtils;
 import org.slf4j.Logger;
@@ -43,7 +44,7 @@ public class RestResponseEntityExceptionHandler extends ResponseEntityExceptionH
 
     //400
 
-    @ExceptionHandler({ ConstraintViolationException.class, DataIntegrityViolationException.class, MyBadRequestException.class })
+    @ExceptionHandler({ ConstraintViolationException.class, MyConstraintViolationException.class, DataIntegrityViolationException.class, MyBadRequestException.class })
     protected final ResponseEntity<Object> handleBadRequest(final RuntimeException ex, final WebRequest request){
 
         if (ExceptionUtils.getRootCauseMessage(ex).contains("uplicate")) {

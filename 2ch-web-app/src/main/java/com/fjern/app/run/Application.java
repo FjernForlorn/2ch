@@ -1,7 +1,6 @@
 package com.fjern.app.run;
 
 import com.fjern.app.run.configs.*;
-import com.fjern.app.web.spring.WebConfig;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.autoconfigure.web.servlet.error.ErrorMvcAutoConfiguration;

@@ -1,4 +1,4 @@
-package com.fjern.app.common.listeners;
+package com.fjern.common.web.listeners;
 
 import com.fjern.common.util.LinkUtil;
 import com.fjern.common.web.events.ResourceRetrievedEvent;

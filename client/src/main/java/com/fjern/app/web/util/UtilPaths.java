@@ -2,7 +2,7 @@ package com.fjern.app.web.util;
 
 import com.fjern.app.persistence.entities.Role;
 import com.fjern.app.persistence.entities.User;
-import com.fjern.common.client.CommonPaths;
+import com.fjern.common.web.client.CommonPaths;
 import com.fjern.common.web.util.UriMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;

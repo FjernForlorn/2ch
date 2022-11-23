@@ -9,9 +9,9 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter
 @Configuration
 @ComponentScan({"com.fjern.common.web.util", "com.fjern.app.web.util"})
 
-public class WebConfig extends WebMvcConfigurerAdapter {
+public class CommonWebConfig extends WebMvcConfigurerAdapter {
 
-    public WebConfig() {
+    public CommonWebConfig() {
         super();
     }
 

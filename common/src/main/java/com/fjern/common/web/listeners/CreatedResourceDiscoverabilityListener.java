@@ -1,4 +1,4 @@
-package com.fjern.app.common.listeners;
+package com.fjern.common.web.listeners;
 
 import com.fjern.common.web.events.AfterResourceCreatedEvent;
 import com.fjern.common.web.util.RestPreconditions;

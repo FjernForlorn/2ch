@@ -1,7 +1,7 @@
 package com.fjern.test.common.client.security;
 
-import com.fjern.common.client.CommonPaths;
-import com.fjern.common.client.OAuthProperties;
+import com.fjern.common.web.client.CommonPaths;
+import com.fjern.common.web.client.OAuthProperties;
 import io.restassured.RestAssured;
 import io.restassured.authentication.OAuthSignature;
 import io.restassured.specification.RequestSpecification;

@@ -1,6 +1,7 @@
 package com.fjern.common.web.util;
 
 import com.fjern.common.exception.MyBadRequestException;
+import com.fjern.common.exception.MyConstraintViolationException;
 import com.fjern.common.exception.MyResourceNotFoundException;
 
 public class RestPreconditions {
@@ -51,5 +52,16 @@ public class RestPreconditions {
             throw new MyBadRequestException(message);
         }
 
+    }
+
+    public static void checkIfConstraintViolation(final boolean expression) {
+
+        checkIfConstraintViolation(expression, null);
+    }
+
+    public static void checkIfConstraintViolation(final boolean expression, String message) {
+        if(!expression) {
+            throw new MyConstraintViolationException(message);
+        }
     }
 }
