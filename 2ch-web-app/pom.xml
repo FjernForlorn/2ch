@@ -232,6 +232,14 @@
 
 			</build>
 		</profile>
+
+		<profile>
+			<id>testDeploy</id>
+			<properties>
+				<envTarget>test</envTarget>
+			</properties>
+		</profile>
+
 	</profiles>
 
 </project>
