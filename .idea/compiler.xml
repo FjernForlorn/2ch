@@ -22,7 +22,7 @@
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
-      <module name="2ch" options="-parameters" />
+      <module name="2ch" options="" />
       <module name="2ch-data" options="-parameters" />
       <module name="2ch-ui" options="" />
       <module name="2ch-web (1)" options="-parameters" />
