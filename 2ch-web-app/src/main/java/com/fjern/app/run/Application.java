@@ -1,11 +1,13 @@
 package com.fjern.app.run;
 
 import com.fjern.app.run.configs.*;
+import io.swagger.v3.oas.annotations.OpenAPIDefinition;
+import io.swagger.v3.oas.annotations.servers.Server;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.autoconfigure.web.servlet.error.ErrorMvcAutoConfiguration;
 
-
+@OpenAPIDefinition(servers = {@Server(url = "/", description = "Default Server URL")})
 @SpringBootApplication(exclude = { // @formatter:off
 		ErrorMvcAutoConfiguration.class
 })// @formatter:on
