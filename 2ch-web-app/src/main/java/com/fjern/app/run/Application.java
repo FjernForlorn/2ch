@@ -6,9 +6,9 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.autoconfigure.web.servlet.error.ErrorMvcAutoConfiguration;
 
 
-@SpringBootApplication(exclude = { // @formatter:off
+@SpringBootApplication(exclude = {
 		ErrorMvcAutoConfiguration.class
-})// @formatter:on
+})
 
 public class Application {
 	private final static Class[] CONFIGS = { // @formatter:off
@@ -20,9 +20,10 @@ public class Application {
 			ResourceServerConfiguration.class,
 			AuthorizationServerConfiguration.class,
 			SecurityConfig.class,
+			OpenApiConfig.class,
 
 			Application.class
-	}; // @formatter:on
+	};
 
 	public static void main(String[] args) {
 		SpringApplication springApplication = new SpringApplication(CONFIGS);
