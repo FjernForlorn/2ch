@@ -1,16 +1,14 @@
 package com.fjern.app.run;
 
 import com.fjern.app.run.configs.*;
-import io.swagger.v3.oas.annotations.OpenAPIDefinition;
-import io.swagger.v3.oas.annotations.servers.Server;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.autoconfigure.web.servlet.error.ErrorMvcAutoConfiguration;
 
-@OpenAPIDefinition(servers = {@Server(url = "/", description = "Default Server URL")})
-@SpringBootApplication(exclude = { // @formatter:off
+
+@SpringBootApplication(exclude = {
 		ErrorMvcAutoConfiguration.class
-})// @formatter:on
+})
 
 public class Application {
 	private final static Class[] CONFIGS = { // @formatter:off
@@ -22,9 +20,10 @@ public class Application {
 			ResourceServerConfiguration.class,
 			AuthorizationServerConfiguration.class,
 			SecurityConfig.class,
+			OpenApiConfig.class,
 
 			Application.class
-	}; // @formatter:on
+	};
 
 	public static void main(String[] args) {
 		SpringApplication springApplication = new SpringApplication(CONFIGS);

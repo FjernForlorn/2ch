@@ -2,6 +2,7 @@ package com.fjern.app.run.configs;
 
 import com.fjern.app.security.MyPasswordEncoder;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Primary;
@@ -31,6 +32,18 @@ public class AuthorizationServerConfiguration extends AuthorizationServerConfigu
 
     @Autowired
     private UserDetailsService userDetailsService;
+
+    @Value(value = "${client.live-test-client-id}")
+    private String liveTestClientId;
+
+    @Value(value = "${client.live-test-client-secret}")
+    private String liveTestClientSecret;
+
+    @Value(value = "${client.open-api-id}")
+    private String openApiClientId;
+
+    @Value(value = "${client.open-api-secret}")
+    private String openApiClientSecret;
 
     public AuthorizationServerConfiguration() {
         super();
@@ -67,13 +80,22 @@ public class AuthorizationServerConfiguration extends AuthorizationServerConfigu
     @Override
     public void configure(ClientDetailsServiceConfigurer clients) throws Exception{
         clients.inMemory()
-                .withClient("live-test")
-                .secret(myPasswordEncoder.getPasswordEncoder().encode("derderder"))
+                .withClient(liveTestClientId)
+                .secret(myPasswordEncoder.getPasswordEncoder().encode(liveTestClientSecret))
                 .authorizedGrantTypes("password", "refresh_token")
                 .refreshTokenValiditySeconds(3600 * 24)
                 .scopes("2ch-web-app")
                 .autoApprove("2ch-web-app")
-                .accessTokenValiditySeconds(3600);
+                .accessTokenValiditySeconds(3600)
+                .and()
+                .withClient(openApiClientId)
+                .secret(myPasswordEncoder.getPasswordEncoder().encode(openApiClientSecret))
+                .authorizedGrantTypes("client_credentials")
+                .refreshTokenValiditySeconds(3600 * 24)
+                .scopes("2ch-web-app")
+                .autoApprove("2ch-web-app")
+                .accessTokenValiditySeconds(3600)
+                ;
 
     }
 
