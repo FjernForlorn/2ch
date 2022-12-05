@@ -25,7 +25,7 @@
         <module>common-client</module>
         <module>common-test</module>
         <module>client</module>
-        <module>2ch-web-app</module>
+        <module>skipper-web-app</module>
     </modules>
 
     <build>
