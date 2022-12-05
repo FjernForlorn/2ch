@@ -3,29 +3,29 @@
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 	<parent>
-		<artifactId>Skipper</artifactId>
+		<artifactId>User-service</artifactId>
 		<groupId>org.fjern</groupId>
 		<version>1.0-SNAPSHOT</version>
 	</parent>
 	<groupId>com.fjern</groupId>
-	<artifactId>client</artifactId>
+	<artifactId>common-client</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>client</name>
-	<description>Demo project for Spring Boot</description>
+	<name>common-client</name>
+	<description>common-client</description>
 
 	<dependencies>
 		<dependency>
 			<groupId>com.fjern</groupId>
-			<artifactId>common-client</artifactId>
+			<artifactId>common</artifactId>
 			<version>0.0.1-SNAPSHOT</version>
 		</dependency>
 
 		<dependency>
-			<groupId>com.fjern</groupId>
-			<artifactId>common-test</artifactId>
-			<version>0.0.1-SNAPSHOT</version>
+			<groupId>org.springframework.security</groupId>
+			<artifactId>spring-security-config</artifactId>
 		</dependency>
-    </dependencies>
+
+	</dependencies>
 
 
 
