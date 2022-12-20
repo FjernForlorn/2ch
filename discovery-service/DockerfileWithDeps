@@ -7,12 +7,15 @@ WORKDIR $WORKDIR
 COPY pom.xml pom.xml
 COPY src src
 
+COPY printDeps.sh printDeps.sh
+
 RUN mvn clean install -X
+RUN bash printDeps.sh
 
 RUN apk add --no-cache binutils
 RUN $JAVA_HOME/bin/jlink \
     --verbose \
-    --add-modules ALL-MODULE-PATH\
+    --add-modules @${WORKDIR}/deps.txt \
     --strip-debug \
     --no-man-pages \
     --no-header-files \
