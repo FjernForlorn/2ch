@@ -4,8 +4,8 @@ FROM maven:3.8.6-eclipse-temurin-17-alpine AS BUILD
 ENV WORKDIR=/opt/app
 WORKDIR $WORKDIR
 
-COPY pom.xml pom.xml
-COPY src src
+COPY ../pom.xml pom.xml
+COPY ../src src
 
 RUN mvn clean package
 
