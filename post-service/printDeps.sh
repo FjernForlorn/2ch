@@ -4,5 +4,5 @@ jdeps --print-module-deps \
  --multi-release 17  \
  -recursive \
  --class-path="app-post-service/target/deps/*"  \
-  "app-post-service/target/app-post-service-0.0.1-SNAPSHOT.jar"\
+  "app-post-service/target/app-post-service-1.0.0-SNAPSHOT.jar"\
   > deps.txt

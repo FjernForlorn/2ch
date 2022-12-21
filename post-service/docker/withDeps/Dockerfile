@@ -1,8 +1,9 @@
 
 FROM maven:3.8.6-eclipse-temurin-17-alpine AS BUILD
 
+
 ENV WORKDIR=/opt/app
-ENV SERVICE_NAME=user-service
+ENV SERVICE_NAME=post-service
 WORKDIR $WORKDIR
 
 COPY pom.xml pom.xml
@@ -19,7 +20,7 @@ COPY common-${SERVICE_NAME}/src common-${SERVICE_NAME}/src
 COPY printDeps.sh printDeps.sh
 
 RUN mvn clean package
-RUN ./printDeps.sh
+RUN bash printDeps.sh
 
 RUN apk add --no-cache binutils
 RUN $JAVA_HOME/bin/jlink \
@@ -34,7 +35,7 @@ RUN $JAVA_HOME/bin/jlink \
 
 FROM alpine:latest
 
-ENV SERVICE_NAME=user-service
+ENV SERVICE_NAME=post-service
 ENV WORKDIR=/opt/app
 WORKDIR $WORKDIR
 

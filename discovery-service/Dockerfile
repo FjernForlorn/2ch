@@ -7,7 +7,7 @@ WORKDIR $WORKDIR
 COPY pom.xml pom.xml
 COPY src src
 
-RUN mvn clean install -X
+RUN mvn clean package
 
 RUN apk add --no-cache binutils
 RUN $JAVA_HOME/bin/jlink \

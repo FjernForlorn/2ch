@@ -16,15 +16,11 @@ COPY client-${SERVICE_NAME}/src client-${SERVICE_NAME}/src
 COPY common-${SERVICE_NAME}/pom.xml common-${SERVICE_NAME}/pom.xml
 COPY common-${SERVICE_NAME}/src common-${SERVICE_NAME}/src
 
-COPY printDeps.sh printDeps.sh
-
 RUN mvn clean package
-RUN ./printDeps.sh
-
 RUN apk add --no-cache binutils
 RUN $JAVA_HOME/bin/jlink \
     --verbose \
-    --add-modules @${WORKDIR}/deps.txt \
+    --add-modules ALL-MODULE-PATH\
     --strip-debug \
     --no-man-pages \
     --no-header-files \
@@ -37,13 +33,11 @@ FROM alpine:latest
 ENV SERVICE_NAME=post-service
 ENV WORKDIR=/opt/app
 WORKDIR $WORKDIR
-
-
 ENV JAVA_HOME=/jre
 ENV PATH="${JAVA_HOME}/bin:${PATH}"
 
 COPY --from=BUILD $WORKDIR/customjre $JAVA_HOME
-COPY --from=BUILD $WORKDIR/app-${SERVICE_NAME}/target/app-${SERVICE_NAME}-0.0.1-SNAPSHOT.jar /app.jar
+COPY --from=BUILD $WORKDIR/app-${SERVICE_NAME}/target/app-${SERVICE_NAME}-1.0.0-SNAPSHOT.jar /app.jar
 
 CMD ["java", "-jar", "-DenvTarget=dev", "/app.jar"]
 
