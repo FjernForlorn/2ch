@@ -19,7 +19,7 @@ COPY common-${SERVICE_NAME}/src common-${SERVICE_NAME}/src
 
 COPY printDeps.sh printDeps.sh
 
-RUN mvn clean package
+RUN mvn clean package -PwithDeps
 RUN bash printDeps.sh
 
 RUN apk add --no-cache binutils
